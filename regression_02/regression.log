@@ -1,0 +1,13 @@
+# Daily regression sample 02
+
+TEST: payment_timeout_retry
+STATUS: FAIL
+SIGNATURE: TIMEOUT
+
+TEST: order_total_validation
+STATUS: FAIL
+SIGNATURE: ASSERTION
+
+TEST: cart_add_item
+STATUS: PASS
+SIGNATURE:

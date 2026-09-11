@@ -1,0 +1,13 @@
+# Daily regression sample 01
+
+TEST: login_valid_credentials
+STATUS: PASS
+SIGNATURE:
+
+TEST: logout_session_cleanup
+STATUS: PASS
+SIGNATURE:
+
+TEST: profile_load
+STATUS: PASS
+SIGNATURE:

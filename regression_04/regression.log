@@ -1,0 +1,13 @@
+# Daily regression sample 04
+
+TEST: report_export_csv
+STATUS: PASS
+SIGNATURE:
+
+TEST: report_export_pdf
+STATUS: FAIL
+SIGNATURE: ENVIRONMENT_SETUP
+
+TEST: report_permissions
+STATUS: PASS
+SIGNATURE:

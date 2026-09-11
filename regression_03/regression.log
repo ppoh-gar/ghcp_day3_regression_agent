@@ -1,0 +1,13 @@
+# Daily regression sample 03
+
+TEST: api_health_check
+STATUS: PASS
+SIGNATURE:
+
+TEST: database_reconnect
+STATUS: FAIL
+SIGNATURE:
+
+TEST: cache_refresh
+STATUS: FAIL
+SIGNATURE: CRASH
