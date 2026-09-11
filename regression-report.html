@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Regression Report</title>
+  <style>
+    :root { color-scheme: light; font-family: Segoe UI, system-ui, sans-serif; color: #17202a; background: #f4f6f8; }
+    body { margin: 0; }
+    header { padding: 2rem clamp(1rem, 4vw, 4rem); background: #17324d; color: white; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem clamp(1rem, 4vw, 4rem) 3rem; }
+    h1, h2, h3 { margin-top: 0; }
+    .status { display: inline-block; padding: .35rem .7rem; border-radius: 999px; font-weight: 700; background: #ffe4e1; color: #9d2418; }
+    .meta { margin: .5rem 0 0; color: #dbe8f3; font-size: .95rem; }
+    .summary, .regression-panel, .warnings { background: white; border: 1px solid #d9e0e6; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: .75rem; margin: 1rem 0; }
+    .metric { padding: 1rem; background: #eef3f7; border-left: 4px solid #387ca8; }
+    .metric strong { display: block; font-size: 1.6rem; }
+    .bucket-list { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
+    .bucket-list li { padding: .55rem .75rem; background: #edf1f4; border-radius: 4px; }
+    label { display: block; font-weight: 700; margin-bottom: .4rem; }
+    select { width: 100%; max-width: 420px; padding: .65rem; font: inherit; border: 1px solid #8795a1; border-radius: 4px; background: white; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: .7rem; border-bottom: 1px solid #e1e6ea; vertical-align: top; }
+    th { background: #f2f5f7; }
+    .pass { color: #176b3a; font-weight: 700; }
+    .fail { color: #a52a20; font-weight: 700; }
+    .warning { border-left: 4px solid #d58b00; background: #fff8e7; padding: .75rem 1rem; margin: .5rem 0; }
+    .muted { color: #5f6b75; }
+    @media (max-width: 650px) { th, td { font-size: .9rem; padding: .5rem .35rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daily Regression Report</h1>
+    <span class="status">FAIL</span>
+    <p class="meta">Generated: 2026-09-11 11:41:23 +08:00<br>Source: C:\temp\ghcp_training_day_3</p>
+  </header>
+  <main>
+    <section class="summary" aria-labelledby="overall-heading">
+      <h2 id="overall-heading">Overall Summary</h2>
+      <div class="metrics">
+        <div class="metric"><span>Regression directories</span><strong>4</strong></div>
+        <div class="metric"><span>Passing tests</span><strong class="pass">7</strong></div>
+        <div class="metric"><span>Failing tests</span><strong class="fail">5</strong></div>
+        <div class="metric"><span>Total tests</span><strong>12</strong></div>
+      </div>
+      <h3>Failing Tests by Signature</h3>
+      <ul class="bucket-list">
+        <li><strong>TIMEOUT:</strong> 1</li>
+        <li><strong>ASSERTION:</strong> 1</li>
+        <li><strong>CRASH:</strong> 1</li>
+        <li><strong>Unknown:</strong> 1</li>
+        <li><strong>ENVIRONMENT_SETUP:</strong> 1</li>
+      </ul>
+      <p class="muted">Recognized signatures: TIMEOUT, ASSERTION, and CRASH. Blank failure signatures are grouped as Unknown. Unrecognized nonblank signatures remain traceable in their own bucket and generate a warning.</p>
+    </section>
+
+    <section class="summary" aria-labelledby="navigation-heading">
+      <h2 id="navigation-heading">Regression Selection</h2>
+      <label for="regression-select">Select a regression directory</label>
+      <select id="regression-select">
+        <option value="all">All regressions</option>
+        <option value="regression-01">regression_01</option>
+        <option value="regression-02">regression_02</option>
+        <option value="regression-03">regression_03</option>
+        <option value="regression-04">regression_04</option>
+      </select>
+    </section>
+
+    <div id="regression-panels">
+      <section class="regression-panel" data-regression="regression-01" aria-labelledby="r1-heading">
+        <h2 id="r1-heading">regression_01</h2>
+        <p class="muted">Source: regression_01\regression.log</p>
+        <div class="metrics"><div class="metric"><span>Passing</span><strong class="pass">3</strong></div><div class="metric"><span>Failing</span><strong>0</strong></div></div>
+        <h3>Failing Tests by Signature</h3><p class="muted">No failing tests.</p>
+        <table><thead><tr><th>Test</th><th>Status</th><th>Signature</th></tr></thead><tbody>
+          <tr><td>login_valid_credentials</td><td class="pass">PASS</td><td>Unknown</td></tr><tr><td>logout_session_cleanup</td><td class="pass">PASS</td><td>Unknown</td></tr><tr><td>profile_load</td><td class="pass">PASS</td><td>Unknown</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="regression-panel" data-regression="regression-02" aria-labelledby="r2-heading">
+        <h2 id="r2-heading">regression_02</h2>
+        <p class="muted">Source: regression_02\regression.log</p>
+        <div class="metrics"><div class="metric"><span>Passing</span><strong class="pass">1</strong></div><div class="metric"><span>Failing</span><strong class="fail">2</strong></div></div>
+        <h3>Failing Tests by Signature</h3><ul class="bucket-list"><li><strong>TIMEOUT:</strong> 1</li><li><strong>ASSERTION:</strong> 1</li></ul>
+        <table><thead><tr><th>Test</th><th>Status</th><th>Signature</th></tr></thead><tbody>
+          <tr><td>payment_timeout_retry</td><td class="fail">FAIL</td><td>TIMEOUT</td></tr><tr><td>order_total_validation</td><td class="fail">FAIL</td><td>ASSERTION</td></tr><tr><td>cart_add_item</td><td class="pass">PASS</td><td>Unknown</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="regression-panel" data-regression="regression-03" aria-labelledby="r3-heading">
+        <h2 id="r3-heading">regression_03</h2>
+        <p class="muted">Source: regression_03\regression.log</p>
+        <div class="metrics"><div class="metric"><span>Passing</span><strong class="pass">1</strong></div><div class="metric"><span>Failing</span><strong class="fail">2</strong></div></div>
+        <h3>Failing Tests by Signature</h3><ul class="bucket-list"><li><strong>CRASH:</strong> 1</li><li><strong>Unknown:</strong> 1</li></ul>
+        <table><thead><tr><th>Test</th><th>Status</th><th>Signature</th></tr></thead><tbody>
+          <tr><td>api_health_check</td><td class="pass">PASS</td><td>Unknown</td></tr><tr><td>database_reconnect</td><td class="fail">FAIL</td><td>Unknown</td></tr><tr><td>cache_refresh</td><td class="fail">FAIL</td><td>CRASH</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="regression-panel" data-regression="regression-04" aria-labelledby="r4-heading">
+        <h2 id="r4-heading">regression_04</h2>
+        <p class="muted">Source: regression_04\regression.log</p>
+        <div class="metrics"><div class="metric"><span>Passing</span><strong class="pass">2</strong></div><div class="metric"><span>Failing</span><strong class="fail">1</strong></div></div>
+        <h3>Failing Tests by Signature</h3><ul class="bucket-list"><li><strong>ENVIRONMENT_SETUP:</strong> 1</li></ul>
+        <table><thead><tr><th>Test</th><th>Status</th><th>Signature</th></tr></thead><tbody>
+          <tr><td>report_export_csv</td><td class="pass">PASS</td><td>Unknown</td></tr><tr><td>report_export_pdf</td><td class="fail">FAIL</td><td>ENVIRONMENT_SETUP</td></tr><tr><td>report_permissions</td><td class="pass">PASS</td><td>Unknown</td></tr>
+        </tbody></table>
+      </section>
+    </div>
+
+    <section class="warnings" aria-labelledby="warnings-heading">
+      <h2 id="warnings-heading">Warnings (1)</h2>
+      <div class="warning"><strong>regression_04 / report_export_pdf:</strong> Unrecognized nonblank failure signature <code>ENVIRONMENT_SETUP</code>. The failure remains in its own bucket for traceability.</div>
+    </section>
+  </main>
+  <script>
+    const select = document.getElementById('regression-select');
+    const panels = [...document.querySelectorAll('.regression-panel')];
+    function showRegression(value) {
+      panels.forEach(panel => { panel.hidden = value !== 'all' && panel.dataset.regression !== value; });
+    }
+    select.addEventListener('change', event => showRegression(event.target.value));
+    showRegression('all');
+  </script>
+</body>
+</html>
